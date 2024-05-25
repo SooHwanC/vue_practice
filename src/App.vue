@@ -1,37 +1,36 @@
 <template>
-    <div>
-        {{ count }}
-    </div>
-    <h1>Life Cycle Hooks</h1>
+<div>
+    <li v-for="item in sampleArray">
+        {{item}}
+    </li>
+    <li v-for="item in otherArray">
+        {{item.id}} : {{item.name}}
+    </li>
+</div>
 </template>
 
 <script>
 export default {
-    data() {
+    setup() {
         return {
-            count: 0,
-        }
-    },
-    beforeCreate() {
-        console.log('beforeCreate', this.count);
-    },
-
-    created() {
-        console.log('created', this.count);
-        this.test();
-      },
-      
-    beforeMount() {
-      console.log('beforeMount', document.querySelector('h1'));
-    },
-    
-    mounted() {
-      console.log('mounted', document.querySelector('h1'));
-    },
-
-    methods: {
-        test() {
-            console.log('함수호출');
+            sampleArray: ['a', 'b', 'c', 'd'],
+            otherArray: [{
+                    id: 0,
+                    name: 'name0'
+                },
+                {
+                    id: 1,
+                    name: 'name1'
+                },
+                {
+                    id: 2,
+                    name: 'name2'
+                },
+                {
+                    id: 3,
+                    name: 'name3'
+                }
+            ]
         }
     }
 }
